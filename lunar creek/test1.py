@@ -111,9 +111,9 @@ def main():
 
 
 def title_screen(screen):
-      title = UIElement(
+     title = UIElement(
         center_position=(400, 200),
-        font_size=30,
+        font_size=70,
         bg_rgb=Red,
         text_rgb=MB,
         text="Lunar Creek",
