@@ -5,7 +5,7 @@ import pygame.freetype
 import pygame.mixer
 from pygame.sprite import RenderUpdates, Sprite
 
-from engine.constants import ORANGE, GAME_DISPLAY, WHITE
+from constants import GAME_DISPLAY, ORANGE, WHITE
 
 
 def textOutput(line):

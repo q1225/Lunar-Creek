@@ -1,9 +1,9 @@
 from pygame.sprite import RenderUpdates
 
-from engine.GameState import GameState
-from engine.UIElement import UIElement
-from engine.constants import WHITE, MIDNIGHT_BLUE
-from engine.game_loop import game_loop
+from constants import MIDNIGHT_BLUE, WHITE
+from game_loop import game_loop
+from GameState import GameState
+from UIElement import UIElement
 
 
 def play_level():

@@ -1,7 +1,7 @@
 import pygame
 from pygame.sprite import RenderUpdates
 
-from engine.constants import WHITE, GAME_DISPLAY
+from constants import GAME_DISPLAY, WHITE
 
 
 def game_loop(buttons: RenderUpdates, image_path: str) -> None:

@@ -3,11 +3,11 @@ from typing import Iterable
 
 import pygame
 
-from engine.GameState import GameState
-from engine.Player import Player
-from engine.constants import ROOT
-from engine.play_level import play_level
-from engine.screens import title_screen, options_screen, credits_screen
+from constants import ROOT
+from GameState import GameState
+from play_level import play_level
+from Player import Player
+from screens import credits_screen, options_screen, title_screen
 
 
 def create_media_array(media_folder: str, valid_extensions: Iterable[str]) -> list[str]:

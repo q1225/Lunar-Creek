@@ -1,10 +1,10 @@
 import pygame
 from pygame.sprite import RenderUpdates
 
-from engine.GameState import GameState
-from engine.UIElement import UIElement
-from engine.constants import RED, ORANGE, MIDNIGHT_BLUE, PURPLE, WHITE
-from engine.game_loop import game_loop
+from constants import MIDNIGHT_BLUE, ORANGE, PURPLE, RED, WHITE
+from game_loop import game_loop
+from GameState import GameState
+from UIElement import UIElement
 
 
 def title_screen(background_image):
