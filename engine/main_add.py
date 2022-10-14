@@ -4,7 +4,7 @@ from xml.sax.handler import feature_external_ges
 import pygame
 import pygame.freetype
 import pygame.mixer
-from pygame.sprite import RenderUpdates,LayeredUpdates, Sprite
+from pygame.sprite import RenderUpdates, LayeredUpdates, Sprite
 
 from constants import GAME_DISPLAY, ORANGE, WHITE
 
@@ -28,7 +28,6 @@ for line in inputedFile:
 inputedFile.close()
 
 
-
 class Scence(Sprite):
     def Scence(imaged, dialogue):
         """
@@ -39,8 +38,9 @@ class Scence(Sprite):
          dialogue (txt) -list dialog ([n,x,y])
         """
 
+
 def imaged(x, y):
-     for i in range(0, len(FBG)):
+    for i in range(0, len(FBG)):
         for x in range(x, y):
             pygame.image.load(FBG[x])
             screen = display_surface
@@ -52,6 +52,7 @@ def imaged(x, y):
             channel1 = pygame.mixer.Channel(0)
             pgyame.mixer.Channel.play()
             pygame.mixer.Channel.stop()
+
 
 # 0
 Scence.Scence(imaged(1, 2), dialog(2, 4, 15))
@@ -163,4 +164,3 @@ feeling(8, 1, 160, 270)
 feeling(5, 0, 192, 195)
 feeling(18, 8, 160, 270)
 sounde(3, True, 160)
-
