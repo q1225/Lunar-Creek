@@ -3,8 +3,8 @@ from typing import Optional
 import pygame
 from pygame.sprite import Sprite
 
-from engine.constants import GAME_DISPLAY
 from GameState import GameState
+from constants import GAME_DISPLAY
 
 
 def create_surface_with_text(
