@@ -9,6 +9,6 @@ class GameState(Enum):
     NEXT_BACKGROUND = 7
     NEXT_LINE = 8
     OPTIONS = 3
-    Notebook = 4
-    Credits = 5
+    NOTEBOOK = 4
+    CREDITS = 5
     LOAD = 6

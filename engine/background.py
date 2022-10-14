@@ -1,17 +1,11 @@
-from email.errors import InvalidMultipartContentTransferEncodingDefect
-from re import X
 import pygame
-from constants import WHITE, LIME_GREEN, RED
-from UIElement import *
-from pygame.sprite import RenderUpdates, LayeredUpdates
-from main import background_images, background_music, chacter_imaages
-from game_loop import *
-from GameState import *
-from main_add import *
+from pygame.sprite import LayeredUpdates, RenderUpdates
 
-X = 800
-Y = 600
-display_surface = pygame.display.setmode(X, Y)
+from GameState import GameState
+from UIElement import UIElement
+from constants import RED, GAME_DISPLAY, WHITE
+from game_loop import game_loop
+from main import background_images, background_music, chacter_imaages
 
 
 def ts(x):
@@ -47,8 +41,8 @@ def ts(x):
             channel1 = pygame.mixer.Channel(0)
             channel1.play(soundb)
             image = (background_images[x],)
-            display_surface.fill(WHITE)
-            display_surface.blit(image, (0, 0))
+            GAME_DISPLAY.fill(WHITE)
+            GAME_DISPLAY.blit(image, (0, 0))
 
 
 def new_scence(s):
@@ -63,10 +57,10 @@ def new_scence(s):
                 font_size=30,
                 bg_rgb=WHITE,
                 text_rgb=RED,
-                action=GameState.NEXT_Level,
+                action=GameState.NEXT_LEVEL,
             )
     buttons = RenderUpdates(nextlevel_btn)
-    return game_loop(display_surface, buttons)
+    return game_loop(buttons)
 
 
 def seal():
@@ -75,7 +69,6 @@ def seal():
     with open("Cult_of_Seal_VN_lines_Final.docx", "r") as fl:
         lines = [lines.rstrip() for lines in fl]
         if lines == seal[k]:
-            image = display_surface
             image = chacter_imaages[25]
-            display_surface.blit(image(400, 400))
+            GAME_DISPLAY.blit(image(400, 400))
             LayeredUpdates.move_to_front
