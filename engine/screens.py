@@ -7,7 +7,7 @@ from GameState import GameState
 from UIElement import UIElement
 
 
-def title_screen(background_image):
+def title_screen(background_image: str):
     t = UIElement(
         center_position=(300, 300),
         font_size=30,
@@ -87,8 +87,8 @@ def options_screen():
     return game_loop(buttons, "")
 
 
-def credits_screen():
-    sound = pygame.mixer.load(m[2])
+def credits_screen(background_music: str):
+    sound = pygame.mixer.Sound(background_music)
     channel0 = pygame.mixer.Channel(0)
     channel0.play(sound)
     channel0.stop()

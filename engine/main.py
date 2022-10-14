@@ -34,18 +34,18 @@ def main():
 
     while True:
         if game_state == GameState.TITLE:
-            game_state = title_screen(background_images[0])
+            title_screen(background_images[0])
         elif game_state == GameState.OPTIONS:
-            game_state = options_screen()
+            options_screen()
         elif game_state == GameState.Credits:
-            game_state = credits_screen()
+            credits_screen(background_music[0])
         elif game_state == GameState.NEW_GAME:
             player = Player()
-            game_state = play_level()
+            play_level()
         elif game_state == GameState.NEXT_LEVEL:
             # noinspection PyUnboundLocalVariable
             player.current_level += 1
-            game_state = play_level()
+            play_level()
 
         elif game_state == GameState.QUIT:
             pygame.quit()

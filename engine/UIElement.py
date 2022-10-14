@@ -1,8 +1,18 @@
+from typing import Optional
+
 import pygame
 from pygame.sprite import Sprite
 
+from engine.constants import GAME_DISPLAY
+from GameState import GameState
 
-def create_surface_with_text(text, font_size, text_rgb, bg_rgb):
+
+def create_surface_with_text(
+    text: str,
+    font_size: float,
+    text_rgb: tuple[int, int, int],
+    bg_rgb: tuple[int, int, int],
+):
     """Returns surface with text written on"""
     font = pygame.freetype.SysFont("GYPSY CRUSE", font_size, bold=True)
     surface, _ = font.render(text=text, fgcolor=text_rgb, bgcolor=bg_rgb)
@@ -12,7 +22,15 @@ def create_surface_with_text(text, font_size, text_rgb, bg_rgb):
 class UIElement(Sprite):
     """A user interface element that can be added to a surface"""
 
-    def __init__(self, center_position, text, font_size, bg_rgb, text_rgb, action=None):
+    def __init__(
+        self,
+        center_position: tuple[int, int],
+        text: str,
+        font_size: float,
+        bg_rgb: tuple[int, int, int],
+        text_rgb: tuple[int, int, int],
+        action: Optional[GameState] = None,
+    ):
         """
         Args:
          center_position - tuple (x, y)
@@ -45,7 +63,7 @@ class UIElement(Sprite):
     def rect(self):
         return self.rects[1] if self.mouse_over else self.rects[0]
 
-    def update(self, mouse_pos, mouse_up):
+    def update(self, mouse_pos: tuple[int, int], mouse_up: bool):
         """Updates the element's appearance depending on the mouse position
         and returns the button's action if clicked.
         """
@@ -56,6 +74,6 @@ class UIElement(Sprite):
         else:
             self.mouse_over = False
 
-    def draw(self, surface):
+    def draw(self):
         """Draws element onto a surface"""
-        surface.blit(self.image, self.rect)
+        GAME_DISPLAY.blit(self.image, self.rect)

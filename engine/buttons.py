@@ -1,12 +1,13 @@
 import os
 import pickle
+from typing import Any
 
 import pygame
 
 from constants import SAVE_FOLDER
 
 
-def save_btn(data, name):
+def save_btn(data: Any, name: str):
     with open(os.path.join(SAVE_FOLDER, f"{name}.data"), "wb") as data_file:
         pickle.dump(data, data_file)
 
@@ -19,7 +20,7 @@ def save_btn(data, name):
     #     self.save_data(file, file_names[index])
 
 
-def load_btn(name):
+def load_btn(name: str):
     with open(os.path.join(SAVE_FOLDER, f"{name}.data"), "rb") as data_file:
         return pickle.load(data_file)
 
@@ -35,8 +36,8 @@ def load_btn(name):
     #         return variables[0]
 
 
-def volume_btn(background_music_file):
+def volume_btn(background_music: str):
     pygame.mixer.init()
-    pygame.mixer.music.load(background_music_file)
+    pygame.mixer.music.load(background_music)
     pygame.mixer.music.set_volume(float(input("volume? 0.0 - 1.0")))
     pygame.mixer.music.play()
