@@ -3,10 +3,10 @@ from typing import Iterable
 
 import pygame
 
-from constants import ROOT
 from GameState import GameState
-from play_level import play_level
 from Player import Player
+from constants import ROOT
+from play_level import play_level
 from screens import credits_screen, options_screen, title_screen
 
 

@@ -25,41 +25,43 @@ def voice(scence, n, x, y):
         pygame.mixer.Channel.play()
         pygame.mixer.Channel.stop()
         with open("Cult_of_Seal_VN_lines_Final.docx", "r") as fl:
-         speech = create_surface_with_text(
-            "Cult_of_Seal_VN_lines_Final.docx", 32, ORANGE, MB
-        )
+            speech = create_surface_with_text(
+                "Cult_of_Seal_VN_lines_Final.docx", 32, ORANGE, MB
+            )
         for x1 in range(x1 + 1, y1, +2):
-         lines = [line.rstrip() for line in fl]
+            lines = [line.rstrip() for line in fl]
 
         for cp in range(0, n):
-         ch = input("who")
-         f = input("How is the charater feeling")
-         feeling(f, ch, x, y)
+            ch = input("who")
+            f = input("How is the charater feeling")
+            feeling(f, ch, x, y)
         # minor characters
         if ch == 5:
-         sc = [127, 129]
+            sc = [127, 129]
         with open("Cult_of_Seal_VN_lines_Final.docx", "r") as fl:
             for x2 in range(0, len(sc1)):
                 lines = [line.rstrip() for line in fl]
                 return print(lines)
         if ch == 6:
-         sc1 = [128, 130]
+            sc1 = [128, 130]
         with open("Cult_of_Seal_VN_lines_Final.docx", "r") as fl:
             for x3 in range(0, len(sc2)):
                 lines = [line.rstrip() for line in fl]
                 return print(lines)
         if ch == 7:
-         sc = [241, 243, 245, 247]
+            sc = [241, 243, 245, 247]
         with open("Cult_of_Seal_VN_lines_Final.docx", "r") as fl:
             for x4 in range(0, len(sc3)):
                 lines = [line.rstrip() for line in fl]
                 return print(lines)
         if ch == 8:
-         sc = [260, 264]
-         with open("Cult_of_Seal_VN_lines_Final.docx", "r") as fl:
-            for x2 in range(0, len(sc4)):
-                lines = [line.rstrip() for line in fl]
-            return print(lines)
+            sc = [260, 264]
+            with open("Cult_of_Seal_VN_lines_Final.docx", "r") as fl:
+                for x2 in range(0, len(sc4)):
+                    lines = [line.rstrip() for line in fl]
+                return print(lines)
+
+
 def sounde(n, soundeffect, x4):
     if soundeffect == True:
         self.sound = pygame.mixer.load(SE[n])
@@ -81,4 +83,3 @@ def sounde(n, soundeffect, x4):
     pygame.mixer.Channel.play()
     pygame.mixer.Channel.stop()
     self.dialogue = dialog(n, x, y)
-    
