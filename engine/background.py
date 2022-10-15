@@ -48,7 +48,7 @@ def ts(x):
 def new_scence(s):
     for x in range(0, len(sc)):
         s = x
-        sc = [4, 7, 40, 50, 61, 85, 116, 125, 138, 156]
+        sc = [4, 17, 40, 50, 61, 85, 116, 125, 138, 156]
         with open("Cult_of_Seal_VN_lines_Final.docx", "r") as fl:
             lines = [lines.rstrip() for lines in fl]
         if lines == sc[x]:
