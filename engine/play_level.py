@@ -41,5 +41,5 @@ def play_level():
         action=GameState.NEXT_LEVEL,
     )
 
-    buttons = RenderUpdates(return_btn, next_level_btn)
+    buttons = RenderUpdates(return_btn,nextbackground_btn, next_line_btn, next_level_btn)
     return game_loop(buttons, "")
