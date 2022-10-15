@@ -46,7 +46,12 @@ def main():
             # noinspection PyUnboundLocalVariable
             player.current_level += 1
             play_level()
-
+       elif game_state==GameState.NEXT_BACKGROUND:
+            player.current_bg +=1
+            play_level()
+        elif game_state==GameState.NEXT_LINE: 
+             player.line += 1
+             play_level()   
         elif game_state == GameState.QUIT:
             pygame.quit()
             return
