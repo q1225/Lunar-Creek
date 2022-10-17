@@ -3,10 +3,10 @@ from typing import Iterable
 
 import pygame
 
-from GameState import GameState
-from Player import Player
 from constants import ROOT
+from GameState import GameState
 from play_level import play_level
+from Player import Player
 from screens import credits_screen, options_screen, title_screen
 
 
@@ -25,7 +25,7 @@ def main():
     character_images = create_media_array("character_images", (".jpg", ".png"))
     voice_acting = create_media_array("voice_acting", (".wav",))
 
-    file = "Cult_of_Seal_VN_lines_Final.txt"
+    File = "Cult_of_Seal_VN_lines_Final.txt"
 
     pygame.init()
 
@@ -46,15 +46,15 @@ def main():
             # noinspection PyUnboundLocalVariable
             player.current_level += 1
             play_level()
-       elif game_state==GameState.NEXT_BACKGROUND:
+        elif game_state==GameState.NEXT_BACKGROUND:
             player.current_bg +=1
             play_level()
         elif game_state==GameState.NEXT_LINE: 
              player.line += 1
-             play_level()   
+             play_level()
         elif game_state == GameState.QUIT:
-            pygame.quit()
-            return
+             pygame.quit()
+             return
 
 
 if __name__ == "__main__":

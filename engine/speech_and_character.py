@@ -6,15 +6,6 @@ from engine.constants import GAME_DISPLAY
 from main import character_images
 from pygame.sprite import LayeredUpdates
 from main_add import *
-def dialogue (n,x,y):
-     with open("Cult_of_Seal_VN_lines_Final.docx", "r") as fl:
-         lines = [lines.rstrip() for lines in fl]
-         x=lines
-     while(x<y):
-       textOutput(x)
-       GAME_DISPLAY.blit(textTitle(500, 700))
-       x+=1
-
 def feeling(f, ch,n, x, y):
         # n==1 fannie f==cp==0-5
         # n==2 bea f==cp==6-11

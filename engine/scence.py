@@ -2,9 +2,9 @@ import pygame
 from pygame.sprite import*
 from main import WHITE,background_images,background_music,GAME_DISPLAY
 from background import ts 
-from speech_and_character import dialog
-class Scence(Sprite):
-    def Scence(imaged, dialog):
+from main_add import textOutput,textTitle
+class Scence(Sprite):  
+ def Scence(imaged,dialog):
         """
         Args:
          image - list (b[])
@@ -12,7 +12,14 @@ class Scence(Sprite):
          sounde-list(SE[])
          dialogue (txt) -list dialog ([n,x,y])
         """
-
+def dialog(x,y):
+     with open("Cult_of_Seal_VN_lines_Final.docx", "r") as fl:
+         lines = [lines.rstrip() for lines in fl]
+         x=lines
+     while(x<y):
+       textOutput(x)
+       GAME_DISPLAY.blit(textTitle(500, 700))
+       x+=1
 def imaged(x, y):
      for i in range(0, len(background_images)):
         ts(i)
