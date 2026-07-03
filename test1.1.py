@@ -115,7 +115,14 @@ class UIElement(Sprite):
 
 
 def dialog(n,x2,y2):
-     def feeling(f,ch,x1,y1):
+    names=["Fannie","Boss","innkeeper","????","Musuem Guide","Robbed People","Beatrice"]
+    for n in range (n,len(names)):
+      with open("C:\lunarcreek\lunarcreek\Cult of Seal VN lines Final.docx","r") as fl:
+       for x2 in range (x2,y2):
+         lines = [line.rstrip() for line in fl]
+         return print(lines) 
+         
+    def feeling(f,ch,x1,y1):
       for cp in range (cp,n):
          ch=(input("who"))
          f=(input("How is the charater feeling"))
