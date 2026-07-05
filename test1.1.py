@@ -117,7 +117,8 @@ class UIElement(Sprite):
 def dialog(n,x2,y2):
     names=["Fannie","Boss","innkeeper","????","Musuem Guide","Robbed People","Beatrice"]
     for n in range (n,len(names)):
-      with open("C:\Lunar-Creek-main\Cult of Seal VN lines Final.docx","r") as fl:
+      with open("C:\\Lunar-Creek-main\\Cult of Seal VN lines Final.docx","r") as fl:
+       speech=create_surface_with_text(fl,32,Orange,MB)
        for x2 in range (x2,y2):
          lines = [line.rstrip() for line in fl]
          return print(lines) 
@@ -130,25 +131,29 @@ def dialog(n,x2,y2):
           #minor characters
          if ch==5:
           sc1=[127,129]
-         with open("C:\Lunar-Creek-main\Cult of Seal VN lines Final.docx","r") as fl:
+         with open("C:\\Lunar-Creek-main\\Cult of Seal VN lines Final.docx","r") as fl:
+          speech=create_surface_with_text(fl,32,Orange,MB)
           for x1 in range (x1,len(sc1)):
             lines = [line.rstrip() for line in fl]
             return print(lines) 
          if ch==6:
           sc1=[128,130]
-         with open("C:\Lunar-Creek-main\Cult of Seal VN lines Final.docx","r") as fl:
+         with open("C:\\Lunar-Creek-main\\Cult of Seal VN lines Final.docx","r") as fl:
+          speech=create_surface_with_text(fl,32,Orange,MB)
           for x2 in range (x2,len(sc1)):
            lines = [line.rstrip() for line in fl]
           return print(lines)  
          if ch==7:
           sc1=[241,243,245,247]
-         with open("C:\Lunar-Creek-main\Cult of Seal VN lines Final.docx","r") as fl:
+         with open("C:\\Lunar-Creek-main\\Cult of Seal VN lines Final.docx","r") as fl:
+           speech=create_surface_with_text(fl,32,Orange,MB)
            for x3 in range (x3,len(sc1)):
             lines = [line.rstrip() for line in fl]
            return print(lines)
          if ch==8:
           sc1=[260,264]
-         with open("C:\Lunar-Creek-main\Cult of Seal VN lines Final.docx","r") as fl:
+         with open("C:\\Lunar-Creek-main\\Cult of Seal VN lines Final.docx","r") as fl:
+          speech=create_surface_with_text(fl,32,Orange,MB)
           for x4 in range (x4,len(sc1)):
            lines = [line.rstrip() for line in fl] 
           return print(lines)               
@@ -175,8 +180,8 @@ def dialog(n,x2,y2):
           pygame.mixer.Channel.play()
           pygame.mixer.Channel.stop() 
           return print(lines)
-         with open("C:\Lunar-Creek-main\Cult of Seal VN lines Final.docx","r") as fl:
-           speech=create_surface_with_text("C:/Lunar-Creek-main/Cult of Seal VN lines Final.docx",32,Orange,MB)
+         with open("C:\\Lunar-Creek-main\\Cult of Seal VN lines Final.docx","r") as fl:
+           speech=create_surface_with_text(fl,32,Orange,MB)
          for x2 in range (x2,y2,+2):
           lines = [line.rstrip() for line in fl]
          else:
@@ -190,8 +195,8 @@ def dialog(n,x2,y2):
          channel3 = pygame.mixer.Channel(n)
          pygame.mixer.Channel.play()
          pygame.mixer.Channel.stop() 
-         with open("C:\Lunar-Creek-main\Cult-of-Seal-VN-lines-Final.docx","r") as fl:
-          speech=create_surface_with_text("C:\Lunar-Creek-main\Cult-of-Seal-VN-lines-Final.docx",32,Orange,MB)
+         with open("C:\\Lunar-Creek-main\\Cult-of-Seal-VN-lines-Final.docx","r") as fl:
+          speech=create_surface_with_text(fl,32,Orange,MB)
          for x1 in range (x1+1,y1,+2):
           lines = [line.rstrip() for line in fl]
           return print(lines) 
@@ -205,13 +210,13 @@ class Scence(Sprite):
              image - list (b[])
              sound-list (bm[])
              sounde-list(SE[])
-             dialog (txt) -function dialog (n,x2,y2)
+             dialog (docx) -function dialog (n,x2,y2)
           """ 
 def dialog(n,x2,y2):
      names=["Fannie","Boss","innkeeper","????","Musuem Guide","Robbed People","Beatrice"]
      for n in range (n,len(names)):
-      with open("C:\Lunar-Creek-main\Cult-of-Seal-VN-lines-Final.docx","r") as fl:
-        speech=create_surface_with_text("C:\Lunar-Creek-main\Cult-of-Seal-VN-lines-Final.docx",32,Orange,MB)
+      with open("C:\\Lunar-Creek-main\\Cult of Seal VN lines Final.docx","r") as fl:
+        speech=create_surface_with_text(fl,32,Orange,MB)
       for x2 in range (x2,y2):
          lines = [line.rstrip() for line in fl]
          return print(lines) 
@@ -235,8 +240,8 @@ def imaged(x,y):
 def seal(x):
         for k in range(0,3):
             seal=[17,104,128]
-        with open("C:\Lunar-Creek-Main\Cult of Seal VN lines Final.docx","r") as fl:
-            speech=create_surface_with_text("C:\Lunar-Creek-main\Cult-of-Seal-VN-lines-Final.docx",32,Orange,MB)
+        with open("C:\\Lunar-Creek-Main\\Cult of Seal VN lines Final.docx","r") as fl:
+            speech=create_surface_with_text(fl,32,Orange,MB)
             lines=seal[k] 
         if x==seal[k]:
             screen=display_surface
@@ -252,7 +257,7 @@ def seal(x):
 def ts (x,self):
         for l in range (0,13):
          ts=[4,31,40,57,61,62,68,85,89,91,137,152,154,177]
-        with open("C:\Lunar-Creek-Main\Cult of Seal VN lines Final.docx","r") as fl:
+        with open("C:\\Lunar-Creek-Main\\Cult of Seal VN lines Final.docx","r") as fl:
            speech=create_surface_with_text(fl,32,Orange,MB)
            lines=ts[l] 
         if x<20 :
@@ -281,7 +286,7 @@ def sounde(n,soundeffect,x2,y2,self):
            channel2 = pygame.mixer.Channel(4)
            pygame.mixer.Channel.play()
            pygame.mixer.Channel.stop()
-           with open("C:\Lunar-Creek-Main\Cult of Seal VN lines Final.docx","r") as fl:
+           with open("C:\\Lunar-Creek-Main\\Cult of Seal VN lines Final.docx","r") as fl:
             speech=create_surface_with_text(fl,32,Orange,MB)
             lines=ts1[i]
           for i in range (0,3):
@@ -290,7 +295,7 @@ def sounde(n,soundeffect,x2,y2,self):
             sounde(2,True,ts1[i])
             sounde(5,True,ts1[i])
           for xs in range (4,270):
-           with open("C:\Lunar-Creek-Main\Cult of Seal VN lines Final.docx","r") as fl:
+           with open("C:\\Lunar-Creek-Main\\Cult of Seal VN lines Final.docx","r") as fl:
             speech=create_surface_with_text(fl,32,Orange,MB)
             lines=(xs)
           self.sound=pygame.mixer.load(bm[1])
@@ -573,13 +578,13 @@ def Credits(screen):
     channel0 = pygame.mixer.Channel(0)
     pygame.mixer.Channel.play()
     pygame.mixer.Channel.stop() 
-    with open("C:\Lunar_Creek_Main\Credits.docx","r") as fl:
-     speech=create_surface_with_text("C:\Lunar_Creek_Main\Credits.docx",32,Orange,MB)
-     lines = [line.rstrip() for line in fl]
-     return lines,speech,sound,channel0
+    with open("C:\\Lunar_Creek_Main\\Credits.docx","r") as fc:
+     speech=create_surface_with_text(fc,32,Orange,MB)
+     lines = [line.rstrip() for line in fc]
+     return lines,speech,sound,channel0,screen
 def play_level(screen, player):
     return_btn = UIElement(
-        center_position=(140, 570),
+        center_position=(140,570),
         font_size=20,
         bg_rgb=white,
         text_rgb=MB,
@@ -593,7 +598,7 @@ def play_level(screen, player):
         text="Return to options",
         action=GameState.NEXT_LEVEL,
     )
-    buttons = RenderUpdates(return_btn,next_levelbtn )
+    buttons = RenderUpdates(return_btn,next_levelbtn)
     return game_loop(screen, buttons)
 
 def game_loop(screen, buttons):
