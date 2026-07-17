@@ -1,7 +1,9 @@
-from enum import Enum
+from enum import Enum 
+from manifest import Manifest
 import os
 import pygame
 import pygame.mixer
+from pygame import mixer_music
 import pygame.freetype
 from pygame.rect import Rect
 from pygame.sprite import RenderUpdates, Sprite,LayeredUpdates
@@ -17,8 +19,8 @@ MB = [199, 9, 70]
 X=0
 Y=0
 FBG=[]
-path = "/Lunar-Creek-main/background_images"
-valid_images = [".JPG"]
+path = "background_images"
+valid_images = [".JPG" ,"jpg"]
 for f in os.listdir(path):
     ext = os.path.splitext(f)[1]
     if ext.lower() not in valid_images:
@@ -26,23 +28,23 @@ for f in os.listdir(path):
     FBG.append(Image.open(os.path.join(path,f)))
    
 bm=[]
-path = "/Lunar-Creek-main/background_music"
-valid = [".wav"]
+path = "background_music"
+valid = [".wav", "mp4"]
 for f in os.listdir(path):
     ext = os.path.splitext(f)[1]
     if ext.lower() not in valid:
         continue
     bm.append(wave.open(os.path.join(path,f)))
 SE=[]
-path = "/Lunar-Creek-main/sound_effects"
-valid1 = [".wav"]
+path = "sound_effects"
+valid1 = [".wav", ".mp4"]
 for f in os.listdir(path):
     ext = os.path.splitext(f)[1]
     if ext.lower() not in valid1:
         continue
     SE.append(wave.open(os.path.join(path,f)))
 C=[]
-path = "/Lunar-Creek-main/character_images"
+path = "character_images"
 valid2 = [".png"]
 for f in os.listdir(path):
     ext = os.path.splitext(f)[1]
@@ -50,8 +52,8 @@ for f in os.listdir(path):
         continue
     C.append(Image.open(os.path.join(path,f)))
 vc=[]
-path = "/Lunar-Creek-main/voice_acting"
-valid3 = [".wav"]
+path = "voice_acting"
+valid3 = [".wav", ".mp4"]
 for f in os.listdir(path):
     ext =Image.os.path.splitext(f)[1]
     if ext.lower() not in valid3:
@@ -59,9 +61,9 @@ for f in os.listdir(path):
     vc.append(wave.open(os.path.join(path,f)))
 display_surface= pygame.display.set_mode((X, Y))
 os.listdir()
+pygame.mixer.init()
 class UIElement(Sprite):
     """A user interface element that can be added to a surface"""
-
     def __init__(self, center_position, text, font_size, bg_rgb, text_rgb, action=None):
           """
             Args:
@@ -112,97 +114,109 @@ class UIElement(Sprite):
 
         # def __init__(self, center_position, text, font_size, text_rgb, action=None):
         #     self.action = action
-
-
+names=["Fannie","Boss","innkeeper","????","Musuem Guide","Robbed People","Beatrice"]
+def create_surface_with_text(text, size, color, mb):
+     with open("Cult_of_Seal_VN_lines_Final.docx.txt","r",encoding='utf-8', errors='ignore') as fl:
+             data=fl.read()
+             return data
 def dialog(n,x2,y2):
-    names=["Fannie","Boss","innkeeper","????","Musuem Guide","Robbed People","Beatrice"]
-    for n in range (n,len(names)):
-      with open("C:\\Lunar-Creek-main\\Cult of Seal VN lines Final.docx","r") as fl:
-       speech=create_surface_with_text(fl,32,Orange,MB)
-       for x2 in range (x2,y2):
-         lines = [line.rstrip() for line in fl]
-         return print(lines) 
+        for n in range (n,len(names)):
+         with open ("Cult_of_Seal_VN_lines_Final.docx.txt","r",encoding='utf-8', errors='ignore') as fl:
+           data=fl.read()
+           for x2 in range (x2,y2):
+            speech=create_surface_with_text(fl,32,Orange,MB)
+            lines = [line.rstrip() for line in fl]
+            return n,x2,y2,speech
+        print (lines)
          
-    def feeling(f,ch,x1,y1):
-      for cp in range (cp,n):
-         ch=(input("who"))
-         f=(input("How is the charater feeling"))
-         feeling(f,ch,x1,y1) 
-          #minor characters
-         if ch==5:
-          sc1=[127,129]
-         with open("C:\\Lunar-Creek-main\\Cult of Seal VN lines Final.docx","r") as fl:
-          speech=create_surface_with_text(fl,32,Orange,MB)
-          for x1 in range (x1,len(sc1)):
-            lines = [line.rstrip() for line in fl]
-            return print(lines) 
-         if ch==6:
-          sc1=[128,130]
-         with open("C:\\Lunar-Creek-main\\Cult of Seal VN lines Final.docx","r") as fl:
-          speech=create_surface_with_text(fl,32,Orange,MB)
-          for x2 in range (x2,len(sc1)):
-           lines = [line.rstrip() for line in fl]
-          return print(lines)  
-         if ch==7:
-          sc1=[241,243,245,247]
-         with open("C:\\Lunar-Creek-main\\Cult of Seal VN lines Final.docx","r") as fl:
-           speech=create_surface_with_text(fl,32,Orange,MB)
-           for x3 in range (x3,len(sc1)):
-            lines = [line.rstrip() for line in fl]
-           return print(lines)
-         if ch==8:
-          sc1=[260,264]
-         with open("C:\\Lunar-Creek-main\\Cult of Seal VN lines Final.docx","r") as fl:
-          speech=create_surface_with_text(fl,32,Orange,MB)
-          for x4 in range (x4,len(sc1)):
-           lines = [line.rstrip() for line in fl] 
-          return print(lines)               
-         def voices(f):
-          for i in range (i,len (vc)):
-           for k in range (k,f):
-            if(f!=0):
-             pygame.image.load(C[ch+f])
-         if (n%2==0):
-          X+=100
-          Y=400
-          LayeredUpdates.move_to_front()
-          pygame.time.set_timer(5000)
-          display_surface.blit(image, (0, 0)) 
-          pygame.mixer.load(vc[i])  
-         else:
-          X=700
-          Y=400
-          LayeredUpdates.move_to_front()
-          pygame.time.set_timer(5000)
-          display_surface.blit(image, (0, 0)) 
-         for c in range (0,n): 
-          channel3 = pygame.mixer.Channel(c)
-          pygame.mixer.Channel.play()
-          pygame.mixer.Channel.stop() 
-          return print(lines)
-         with open("C:\\Lunar-Creek-main\\Cult of Seal VN lines Final.docx","r") as fl:
-           speech=create_surface_with_text(fl,32,Orange,MB)
-         for x2 in range (x2,y2,+2):
-          lines = [line.rstrip() for line in fl]
-         else:
-          pygame.image.load(C[ch+1])
-         X+=100
-         Y=400
-         LayeredUpdates.move_to_front()
-         pygame.time.set_timer(5000)
-         display_surface.blit(image, (0, 0)) 
-         sound=pygame.mixer.load(vc[ch[i]])
-         channel3 = pygame.mixer.Channel(n)
-         pygame.mixer.Channel.play()
-         pygame.mixer.Channel.stop() 
-         with open("C:\\Lunar-Creek-main\\Cult-of-Seal-VN-lines-Final.docx","r") as fl:
-          speech=create_surface_with_text(fl,32,Orange,MB)
-         for x1 in range (x1+1,y1,+2):
-          lines = [line.rstrip() for line in fl]
-          return print(lines) 
-         return voices(f)
-      return feeling(f,ch,x1,y1)
-      return speech
+def feeling(f,ch,x1,y1):
+          for ch in range (ch,9):
+            if ch==5:
+                sc1=[127,129]
+                with open("Cult_of_Seal_VN_lines_Final.docx.txt","r",encoding='utf-8', errors='ignore') as fl:
+                 data=fl.read()
+                 speech=create_surface_with_text(fl,32,Orange,MB)
+                 for l in range (0,len(sc1)):
+                   lines = [line.rstrip() for line in fl]
+                   return speech 
+                print (lines)
+            elif(ch==6):
+               sc1=[128,130]
+               with open("Cult_of_Seal_ VN_lines_Final.docx.txt","r",encoding='utf-8', errors='ignore') as fl:
+                data=fl.read()
+               speech=create_surface_with_text(fl,32,Orange,MB)
+               for x2 in range (x2,len(sc1)):
+                lines = [line.rstrip() for line in fl]
+                print(lines)  
+            elif ch==7:
+             sc1=[241,243,245,247]
+             with open("Cult_of_Seal_VN_lines_Final.docx.txt","r",encoding='utf-8', errors='ignore') as fl:
+              data=fl.read()
+              speech=create_surface_with_text(fl,32,Orange,MB)
+             for x3 in range (x3,len(sc1)):
+              lines = [line.rstrip() for line in fl]
+              print(lines)
+            elif ch==8:
+             sc1=[260,264]
+             with open("Cult_of_Seal_VN_lines_Final.docx.txt","r",encoding='utf-8', errors='ignore') as fl:
+              data=fl.read()
+              for j in range (j,len(sc1)):
+               speech=create_surface_with_text(fl,32,Orange,MB)
+               lines = [line.rstrip() for line in fl] 
+              return speech, print(lines)              
+          else:
+             for n in range (n,len (vc)):
+               for ch in range (ch,f):
+                if(f!=0):
+                 pygame.image.load(C[ch+f])
+               x1=0
+               if (n%2==0):
+                X+=100
+                Y=400
+                LayeredUpdates.move_to_front()
+                pygame.time.set_timer(5000)
+                display_surface.blit(image, (0, 0)) 
+                pygame.image.load(C[ch+1])
+                X+=100
+                Y=400
+                LayeredUpdates.move_to_front()
+                pygame.time.set_timer(5000)
+                display_surface.blit(image, (0, 0)) 
+               with open("Cult_of_Seal_VN_lines_Final.docx.txt","r",encoding='utf-8', errors='ignore') as fl:
+                data=fl.read()
+                speech=create_surface_with_text(fl,32,Orange,MB)
+                y2=y1
+               for x1 in range (x1+1,y2+2):
+                lines = [line.rstrip() for line in fl]           
+               n=len(names)
+             else:
+               X=700
+               Y=400
+               LayeredUpdates.move_to_front()
+               pygame.time.set_timer(5000)
+               display_surface.blit(image, (0, 0)) 
+def voice(f):
+              for n in range (0,len (vc)):
+               for ch in range (0,f):
+                if(f!=0):
+                  x1=0
+               if (n%2==0):
+                mixer_music.load(vc[n+f])  
+               mixer_music.play()
+               mixer_music.stop()
+              else:
+               for c in range (0,9): 
+                 channel3 = pygame.mixer.Channel(c)
+                 pygame.mixer.Channel.play()
+                 pygame.mixer.Channel.stop() 
+              with open("Cult_of_ Seal_VN_lines_Final.txt","r",encoding='utf-8', errors='ignore' ) as fl:
+               data=fl.read()
+               speech=create_surface_with_text(fl,32,Orange,MB)
+               y2=y1=lines
+              for x2 in range (x2,y2,+2):
+               lines = [line.rstrip() for line in fl]
+               pass
+               return print(lines),speech,data,voice(f),feeling(f,ch,x1,y1),dialog(f,x2,y2),channel3
 class Scence(Sprite): 
      def Scence(imaged,dialog):
           """
@@ -210,18 +224,19 @@ class Scence(Sprite):
              image - list (b[])
              sound-list (bm[])
              sounde-list(SE[])
-             dialog (docx) -function dialog (n,x2,y2)
+             dialog (txt) -function dialog (n,x2,y2)
           """ 
-def dialog(n,x2,y2):
-     names=["Fannie","Boss","innkeeper","????","Musuem Guide","Robbed People","Beatrice"]
-     for n in range (n,len(names)):
-      with open("C:\\Lunar-Creek-main\\Cult of Seal VN lines Final.docx","r") as fl:
+
+     def dialog(n,x2,y2):
+      names=["Fannie","Boss","innkeeper","????","Musuem Guide","Robbed People","Beatrice"]
+      for n in range (n,len(names)):
+       with open ("Cult_of_Seal_VN_lines_Final.docx.txt","r",encoding='utf-8', errors='ignore') as fl:
+        data=fl.read()
         speech=create_surface_with_text(fl,32,Orange,MB)
       for x2 in range (x2,y2):
          lines = [line.rstrip() for line in fl]
-         return print(lines) 
-         return speech      
-        
+         return print(lines),speech,data
+             
 def imaged(x,y):
              for x in range(x,y):
               x=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19] 
@@ -231,7 +246,7 @@ def imaged(x,y):
               X=800
               Y=600
               display_surface.blit(image, (0, 0))
-              sound=pygame.mixer.load(bm[1])
+              sound=mixer_music.load(bm[1])
               channel1 = pygame.mixer.Channel(0)
               pygame.mixer.Channel.play()
               pygame.mixer.Channel.stop()
@@ -240,7 +255,8 @@ def imaged(x,y):
 def seal(x):
         for k in range(0,3):
             seal=[17,104,128]
-        with open("C:\\Lunar-Creek-Main\\Cult of Seal VN lines Final.docx","r") as fl:
+        with open("Cult_of_Seal_VN_lines_Final.docx.txt","r",encoding='utf-8', errors='ignore') as fl:
+            data=fl.read()
             speech=create_surface_with_text(fl,32,Orange,MB)
             lines=seal[k] 
         if x==seal[k]:
@@ -251,13 +267,13 @@ def seal(x):
             Y=400
             display_surface.blit(image, (0, 0))        
             LayeredUpdates.move_to_front()
-            return lines 
-            return speech
+            return lines,speech,data 
         
 def ts (x,self):
         for l in range (0,13):
          ts=[4,31,40,57,61,62,68,85,89,91,137,152,154,177]
-        with open("C:\\Lunar-Creek-Main\\Cult of Seal VN lines Final.docx","r") as fl:
+        with open("Cult_of_Seal_VN_lines_Final.docx.txt","r",encoding='utf-8', errors='ignore') as fl:
+           data= fl.read()
            speech=create_surface_with_text(fl,32,Orange,MB)
            lines=ts[l] 
         if x<20 :
@@ -274,19 +290,19 @@ def ts (x,self):
         X=800
         Y=600
         display_surface.blit(image, (0, 0))
-        self.soundb=pygame.mixer.load(bm[1])
+        self.soundb=mixer_music.load(bm[1])
         channel1 = pygame.mixer.Channel(0)
         pygame.mixer.Channel.play()
         pygame.mixer.Channel.stop()
-        return game_loop(screen, buttons)
-        return lines,speech,channel1,speech
+        return game_loop(screen, buttons),lines,speech,channel1,data,speech
 def sounde(n,soundeffect,x2,y2,self):
           if soundeffect==True:
-           self.sound=pygame.mixer.load(SE[n]) 
+           self.sound=mixer_music.load(SE[n]) 
            channel2 = pygame.mixer.Channel(4)
            pygame.mixer.Channel.play()
            pygame.mixer.Channel.stop()
-           with open("C:\\Lunar-Creek-Main\\Cult of Seal VN lines Final.docx","r") as fl:
+           with open("Cult_of_Seal_VN_lines_Final.docx.txt","r",encoding='utf-8', errors='ignore') as fl:
+            data=fl.read()
             speech=create_surface_with_text(fl,32,Orange,MB)
             lines=ts1[i]
           for i in range (0,3):
@@ -295,15 +311,16 @@ def sounde(n,soundeffect,x2,y2,self):
             sounde(2,True,ts1[i])
             sounde(5,True,ts1[i])
           for xs in range (4,270):
-           with open("C:\\Lunar-Creek-Main\\Cult of Seal VN lines Final.docx","r") as fl:
+           with open("Cult_of_Seal_VN_lines_Final.docx.txt","r",encoding='utf-8', errors='ignore') as fl:
+            data=fl.read()
             speech=create_surface_with_text(fl,32,Orange,MB)
             lines=(xs)
-          self.sound=pygame.mixer.load(bm[1])
+          self.sound=pygame.mixer.music.load(bm[1])
           channel1 = pygame.mixer.Channel(0)
           pygame.mixer.Channel.play()
           pygame.mixer.Channel.stop()
-          self.dialog=dialog(n,x2,y2)
-          return lines,channel1,channel2,speech
+          self.dialog=self.dialog(n,x2,y2)
+          return lines,channel1,channel2,speech,data
 def notebook(scence):
         if scence==4:
          pygame.time.set_timer(5000)
@@ -311,32 +328,30 @@ def notebook(scence):
          pygame.display.text("News is different on the island")
          pygame.time.set_timer(3000)
          pygame.gamestate.NEXTlEVEL()
-feelings=dialog(0,0,0)
-voices=feelings()
 #0
-feelings(0,0,6,14)
-feelings(10,2,8,15)
-voices(5) 
-voices(4)
+dialog(0,6,14)
+feeling(10,2,8,15)
+voice(5) 
+voice(4)
 Scence.Scence(imaged(1,2),dialog(2,4,15)) 
 sounde(5,True,8)
 sounde(0,True,8)
 #1
-voices(6)
-voices(14)
-feelings(14,2,23,25)
+voice(6)
+voice(14)
+feeling(14,2,23,25)
 Scence(imaged(3,3),SE(8),dialog(2,17,43))
 sounde(8,True,23)
 
 #2
 Scence(imaged(4,6),dialog(1,44,49))
-voices(6)
+voice(6)
 choice=(input("Town Hall or Museum ?"))
 if choice== 1:
   #3
   Scence(imaged(7,7),dialog(1,50,60))
-  voices(7)
-  feelings(5,0,54,60)
+  voice(7)
+  feeling(5,0,54,60)
   sounde(4,True,54)
   sounde(5,True,54)
   image = pygame.image.load(C[27])
@@ -356,10 +371,10 @@ if choice== 1:
    LayeredUpdates.move_to_bacK()
 elif choice==2:
   #4
-  voices(8)
-  voices(16)
-  feelings(5,0,76,83) 
-  Scence(imaged(10,15),dialog(2,61,84))
+  voice(8)
+  voice(16)
+  feeling(5,0,76,83) 
+  Scence(imaged(10,15),f.dialog(2,61,84))
   sounde(2,True,78)
   sounde(5,True,78)
   X=700
@@ -380,8 +395,8 @@ elif choice==2:
    LayeredUpdates.move_to_front()
 #5
 Scence(imaged(16,16),dialog(2,85,114))
-voices(9)
-voices(1)
+voice(9)
+voice(1)
 sounde(4,True,90)
 #114
 seal(3)
@@ -390,43 +405,43 @@ if choice==1   and "________":
   print("doll")  
 elif choice==2  and "________": 
   print ("statue")
-feelings(3,0,95,106)
-feelings(6,1,99,106)
+feeling(3,0,95,106)
+feeling(6,1,99,106)
 #6
 Scence(imaged(16,16),dialog(3,116,123))
-voices(10)
-voices(15)
-feelings(8,1,119,122)
-feelings(14,4,118,122)
+voice(10)
+voice(15)
+feeling(8,1,119,122)
+feeling(14,4,118,122)
 sounde(3,True,119)
 #6_5
-feelings(15,5,127,129)
-voices(17)
+feeling(15,5,127,129)
+voice(17)
 Scence(imaged(16,16),dialog(3,125,136))
 for p in range (0,9):
  channel1 = pygame.mixer.Channel(p+1)
  pygame.mixer.Channel.play()
  pygame.mixer.Channel.stop()
- voices(19)
- feelings(16,6,128,130)
+ voice(19)
+ feeling(16,6,128,130)
  sounde(3,True,127)
-voices(11)
+voice(11)
 #7
-voices(12)
-voices(2)
-feelings(8,1,140,154)
-Scence(imaged(3,3),dialog([2,138,154]))
+voice(12)
+voice(2)
+feeling(8,1,140,154)
+Scence(imaged(3,3),f.dialog(2,138,154))
 
 sounde(3,True,140)
 #8
 
-Scence(image(17,19),dialog(3,156,270))
-voices(13)
-voices(3)
-voices(18)
-feelings(8,1,160,270)
-feelings(5,0,192,195)
-feelings(18,8,160,270)
+Scence(image(17,19),f.dialog(3,156,270))
+voice(13)
+voice(3)
+voice(18)
+feeling(8,1,160,270)
+feeling(5,0,192,195)
+feeling(18,8,160,270)
 sounde(3,True,160)
 def save_btn(self, data, name):
         data_file = open(self.save_folder+"/"+name+self.file_extension, "wb")
@@ -578,7 +593,8 @@ def Credits(screen):
     channel0 = pygame.mixer.Channel(0)
     pygame.mixer.Channel.play()
     pygame.mixer.Channel.stop() 
-    with open("C:\\Lunar_Creek_Main\\Credits.docx","r") as fc:
+    with open("Credits.txt","r",encoding='utf-8', errors='ignore') as fc:
+     data= fc.read()
      speech=create_surface_with_text(fc,32,Orange,MB)
      lines = [line.rstrip() for line in fc]
      return lines,speech,sound,channel0,screen
@@ -636,7 +652,36 @@ for event in pygame.event.get():
              running=False
 screen.fill((0.,0,0))
 pygame.display.update()  
-pygame.quit()
+pygame.quit() 
+
+    # Define manifest data
+manifest_data = {
+        "name": "MyApp",
+        "version": "1.0.0",
+        "description": "Example manifest file built with python-manifest",
+        "dependencies": ["requests>=2.0.0", "numpy>=1.21.0"],
+        "author": {
+            "name": "John Doe",
+            "email": "john@example.com"
+        }
+    }
+
+    # Output file path (extension determines format: .json, .yaml, .toml)
+output_file = "manifest.json"
+
+try:
+        # Create Manifest object
+        manifest = Manifest(manifest_data)
+
+        # Build (write) the manifest file
+        manifest.build(output_file)
+
+        print(f"Manifest successfully built: {os.path.abspath(output_file)}")
+
+except Exception as e:
+        print(f"Error building manifest: {e}")
+
+
 if __name__ == "__main__":
    main()
    
