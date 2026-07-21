@@ -1,10 +1,9 @@
 from typing import Optional
 
 import pygame
-from pygame.sprite import Sprite
-
-from GameState import GameState
 from constants import GAME_DISPLAY
+from GameState import GameState
+from pygame.sprite import Sprite
 
 
 def create_surface_with_text(

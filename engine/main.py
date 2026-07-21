@@ -2,7 +2,6 @@ import os
 from typing import Iterable
 
 import pygame
-
 from constants import ROOT
 from GameState import GameState
 from play_level import play_level
@@ -46,15 +45,15 @@ def main():
             # noinspection PyUnboundLocalVariable
             player.current_level += 1
             play_level()
-        elif game_state==GameState.NEXT_BACKGROUND:
-            player.current_bg +=1
+        elif game_state == GameState.NEXT_BACKGROUND:
+            player.current_bg += 1
             play_level()
-        elif game_state==GameState.NEXT_LINE: 
-             player.line += 1
-             play_level()
+        elif game_state == GameState.NEXT_LINE:
+            player.line += 1
+            play_level()
         elif game_state == GameState.QUIT:
-             pygame.quit()
-             return
+            pygame.quit()
+            return
 
 
 if __name__ == "__main__":
