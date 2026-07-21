@@ -1,0 +1,11 @@
+[project]
+name = "python"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "pillow>=12.3.0",
+    "pygame>=2.6.1",
+    "python-manifest>=2.3.3",
+]
