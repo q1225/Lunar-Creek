@@ -1,6 +1,5 @@
 import pygame
-from main import character_images
-from main_add import *
+from media import character_images
 from pygame.sprite import LayeredUpdates
 
 from engine.constants import GAME_DISPLAY

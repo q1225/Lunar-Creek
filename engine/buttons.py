@@ -5,7 +5,7 @@ from typing import Any
 import pygame
 from constants import SAVE_FOLDER
 from GameState import *
-from main import File, background_images
+from media import File, background_images
 
 from engine.constants import ROOT
 from engine.Player import Player

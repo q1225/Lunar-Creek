@@ -1,7 +1,6 @@
 import pygame
-from background import ts
-from main import GAME_DISPLAY, WHITE, background_images, background_music
-from main_add import textOutput, textTitle
+from constants import GAME_DISPLAY, WHITE
+from media import background_images, background_music
 from pygame.sprite import *
 
 
@@ -17,6 +16,8 @@ class Scence(Sprite):
 
 
 def dialog(x, y):
+    from main_add import textOutput, textTitle  # deferred: main_add imports this module
+
     with open("Cult_of_Seal_VN_lines_Final.docx", "r") as fl:
         lines = [lines.rstrip() for lines in fl]
         x = lines
@@ -27,6 +28,8 @@ def dialog(x, y):
 
 
 def imaged(x, y):
+    from background import ts  # deferred: background imports imaged from here
+
     for i in range(0, len(background_images)):
         ts(i)
         for x in range(x, y):

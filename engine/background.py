@@ -1,13 +1,8 @@
 import pygame
 from constants import GAME_DISPLAY, WHITE
-from game_loop import *
-from GameState import *
-from main import background_images, background_music, chacter_imaages
-from main_add import *
-from play_level import *
+from media import background_images, background_music, character_images
 from pygame.sprite import LayeredUpdates
 from scence import imaged
-from UIElement import *
 
 
 def ts(x):
@@ -48,6 +43,8 @@ def ts(x):
 
 
 def new_scence(s):
+    from play_level import play_level  # deferred: play_level imports ts from here
+
     for x in range(0, len(sc)):
         s = x
         sc = [4, 7, 40, 50, 61, 85, 116, 125, 138, 156]
@@ -58,12 +55,14 @@ def new_scence(s):
 
 
 def seal():
+    from play_level import play_level  # deferred: play_level imports ts from here
+
     for k in range(0, 3):
         seal = [17, 104, 128]
     with open("Cult_of_Seal_VN_lines_Final.docx", "r") as fl:
         lines = [lines.rstrip() for lines in fl]
         if lines == seal[k]:
             play_level()
-            image = chacter_imaages[25]
+            image = character_images[25]
             GAME_DISPLAY.blit(image(400, 400))
             LayeredUpdates.move_to_front

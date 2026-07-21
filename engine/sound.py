@@ -1,5 +1,5 @@
 import pygame
-from main import sound_effects, voice_acting
+from media import sound_effects, voice_acting
 
 
 def voice(Scence, n, x, y):

@@ -1,31 +1,12 @@
-import os
-from typing import Iterable
-
 import pygame
-from constants import ROOT
 from GameState import GameState
+from media import background_images, background_music
 from play_level import play_level
 from Player import Player
 from screens import credits_screen, options_screen, title_screen
 
 
-def create_media_array(media_folder: str, valid_extensions: Iterable[str]) -> list[str]:
-    return [
-        os.path.join(ROOT, media_folder, file)
-        for file in os.listdir(os.path.join(ROOT, media_folder))
-        if os.path.splitext(file)[1].lower() in valid_extensions
-    ]
-
-
 def main():
-    background_images = create_media_array("background_images", (".jpg", ".png"))
-    background_music = create_media_array("background_music", (".wav",))
-    sound_effects = create_media_array("sound_effects", (".wav",))
-    character_images = create_media_array("character_images", (".jpg", ".png"))
-    voice_acting = create_media_array("voice_acting", (".wav",))
-
-    File = "Cult_of_Seal_VN_lines_Final.txt"
-
     pygame.init()
 
     game_state = GameState.TITLE
