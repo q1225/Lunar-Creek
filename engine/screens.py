@@ -1,9 +1,8 @@
 import pygame
-from pygame.sprite import RenderUpdates
-
 from constants import MIDNIGHT_BLUE, ORANGE, PURPLE, RED, WHITE
 from game_loop import game_loop
 from GameState import GameState
+from pygame.sprite import RenderUpdates
 from UIElement import UIElement
 
 
